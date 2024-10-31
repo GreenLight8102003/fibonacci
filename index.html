@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minh họa thuật toán đệ quy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Minh họa thuật toán đệ quy</h1>
+
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs">
+            <button class="nav-tab active" data-tab="fib-calc">
+                <i class="fas fa-calculator"></i> Tính Fibonacci
+            </button>
+            <button class="nav-tab" data-tab="fib-print">
+                <i class="fas fa-list-ol"></i> In dãy Fibonacci
+            </button>
+            <button class="nav-tab" data-tab="fib-check">
+                <i class="fas fa-check-circle"></i> Kiểm tra số Fibonacci
+            </button>
+        </div>
+
+        <!-- Tính Fibonacci -->
+        <div id="fib-calc" class="tab-content active">
+            <div class="code-section">
+                <h2>Code mẫu:</h2>
+                <div class="code-tabs">
+                    <button class="code-tab active" onclick="showCode('calc-python')">Python</button>
+                    <button class="code-tab" onclick="showCode('calc-cpp')">C++</button>
+                </div>
+                <div id="calc-python-code" class="code-block active">
+                    <pre><code><span class="keyword">def</span> <span class="function">fibonacci</span>(n):
+    <span class="comment"># Điều kiện dừng</span>
+    <span class="keyword">if</span> n <= 1:
+        <span class="keyword">return</span> n
+    
+    <span class="comment"># Công thức đệ quy</span>
+    <span class="keyword">return</span> fibonacci(n-1) + fibonacci(n-2)</code></pre>
+                </div>
+                <div id="calc-cpp-code" class="code-block">
+                    <pre><code><span class="keyword">int</span> <span class="function">fibonacci</span>(<span class="keyword">int</span> n) {
+    <span class="comment">// Điều kiện dừng</span>
+    <span class="keyword">if</span> (n <= 1)
+        <span class="keyword">return</span> n;
+    
+    <span class="comment">// Công thức đệ quy</span>
+    <span class="keyword">return</span> fibonacci(n-1) + fibonacci(n-2);
+}</code></pre>
+                </div>
+            </div>
+            <div class="input-section">
+                <label for="calc-number">Nhập số cần tính:</label>
+                <input type="number" id="calc-number" value="5">
+                <button onclick="calculateFibonacci()">Tính toán</button>
+            </div>
+            <div id="calc-result" class="result-section"></div>
+        </div>
+
+        <!-- In dãy Fibonacci -->
+        <div id="fib-print" class="tab-content">
+            <div class="code-section">
+                <h2>Code mẫu:</h2>
+                <div class="code-tabs">
+                    <button class="code-tab active" onclick="showCode('print-python')">Python</button>
+                    <button class="code-tab" onclick="showCode('print-cpp')">C++</button>
+                </div>
+                <div id="print-python-code" class="code-block active">
+                    <pre><code><span class="keyword">def</span> <span class="function">fibonacci</span>(n):
+    <span class="comment"># Điều kiện dừng</span>
+    <span class="keyword">if</span> n <= 1:
+        <span class="keyword">return</span> n
+    <span class="keyword">return</span> fibonacci(n-1) + fibonacci(n-2)
+
+<span class="keyword">def</span> <span class="function">printFibonacci</span>(n):
+    <span class="comment"># In n số Fibonacci đầu tiên</span>
+    <span class="keyword">for</span> i <span class="keyword">in</span> range(n):
+        print(fibonacci(i), end=" ")</code></pre>
+                </div>
+                <div id="print-cpp-code" class="code-block">
+                    <pre><code><span class="keyword">int</span> <span class="function">fibonacci</span>(<span class="keyword">int</span> n) {
+    <span class="comment">// Điều kiện dừng</span>
+    <span class="keyword">if</span> (n <= 1)
+        <span class="keyword">return</span> n;
+    <span class="keyword">return</span> fibonacci(n-1) + fibonacci(n-2);
+}
+
+<span class="keyword">void</span> <span class="function">printFibonacci</span>(<span class="keyword">int</span> n) {
+    <span class="comment">// In n số Fibonacci đầu tiên</span>
+    <span class="keyword">for</span>(<span class="keyword">int</span> i = 0; i < n; i++)
+        cout << fibonacci(i) << " ";
+}</code></pre>
+                </div>
+            </div>
+            <div class="input-section">
+                <label for="print-number">Nhập số lượng số Fibonacci cần in:</label>
+                <input type="number" id="print-number" value="5">
+                <button onclick="printFibonacci()">In dãy số</button>
+            </div>
+            <div id="print-result" class="result-section"></div>
+        </div>
+
+        <!-- Kiểm tra số Fibonacci -->
+        <div id="fib-check" class="tab-content">
+            <div class="code-section">
+                <h2>Code mẫu:</h2>
+                <div class="code-tabs">
+                    <button class="code-tab active" onclick="showCode('check-python')">Python</button>
+                    <button class="code-tab" onclick="showCode('check-cpp')">C++</button>
+                </div>
+                <div id="check-python-code" class="code-block active">
+                    <pre><code><span class="keyword">def</span> <span class="function">fibonacci</span>(n):
+    <span class="comment"># Điều kiện dừng</span>
+    <span class="keyword">if</span> n <= 1:
+        <span class="keyword">return</span> n
+    <span class="keyword">return</span> fibonacci(n-1) + fibonacci(n-2)
+
+<span class="keyword">def</span> <span class="function">isFibonacci</span>(x, n=0):
+    <span class="comment"># Điều kiện dừng: nếu tìm thấy số Fibonacci bằng x</span>
+    fib = fibonacci(n)
+    <span class="keyword">if</span> fib == x:
+        <span class="keyword">return</span> True
+    <span class="comment"># Nếu số Fibonacci vượt quá x, dừng tìm kiếm</span>
+    <span class="keyword">if</span> fib > x:
+        <span class="keyword">return</span> False
+    <span class="comment"># Đệ quy: kiểm tra số Fibonacci tiếp theo</span>
+    <span class="keyword">return</span> isFibonacci(x, n + 1)</code></pre>
+                </div>
+                <div id="check-cpp-code" class="code-block">
+                    <pre><code><span class="keyword">int</span> <span class="function">fibonacci</span>(<span class="keyword">int</span> n) {
+    <span class="comment">// Điều kiện dừng</span>
+    <span class="keyword">if</span> (n <= 1)
+        <span class="keyword">return</span> n;
+    <span class="keyword">return</span> fibonacci(n-1) + fibonacci(n-2);
+}
+
+<span class="keyword">bool</span> <span class="function">isFibonacci</span>(<span class="keyword">int</span> x, <span class="keyword">int</span> n = 0) {
+    <span class="comment">// Điều kiện dừng: nếu tìm thấy số Fibonacci bằng x</span>
+    <span class="keyword">int</span> fib = fibonacci(n);
+    <span class="keyword">if</span> (fib == x)
+        <span class="keyword">return</span> true;
+    <span class="comment">// Nếu số Fibonacci vượt quá x, dừng tìm kiếm</span>
+    <span class="keyword">if</span> (fib > x)
+        <span class="keyword">return</span> false;
+    <span class="comment"># Đệ quy: kiểm tra số Fibonacci tiếp theo</span>
+    <span class="keyword">return</span> isFibonacci(x, n + 1);
+}</code></pre>
+                </div>
+            </div>
+            <div class="input-section">
+                <label for="check-number">Nhập số cần kiểm tra:</label>
+                <input type="number" id="check-number" value="8">
+                <button onclick="checkFibonacci()">Kiểm tra</button>
+            </div>
+            <div id="check-result" class="result-section"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

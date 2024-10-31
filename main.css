@@ -1,0 +1,504 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    line-height: 1.6;
+}
+
+.container {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 800px;
+}
+
+h1 {
+    color: #2d3748;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.input-section {
+    background: linear-gradient(135deg, #e6f3ff 0%, #f0f7ff 100%);
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 2rem 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.input-section label {
+    display: block;
+    color: #2d3748;
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+}
+
+.input-section input {
+    width: 100%;
+    max-width: 200px;
+    padding: 0.8rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.input-section input:focus {
+    outline: none;
+    border-color: #4299e1;
+}
+
+.input-section button {
+    background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.input-section button:hover {
+    transform: translateY(-2px);
+}
+
+.result-section {
+    background: #f8fafc;
+    padding: 2rem;
+    border-radius: 15px;
+}
+
+#result {
+    margin-top: 1rem;
+    line-height: 1.8;
+}
+
+.number {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 0.3rem;
+}
+
+.steps-container {
+    font-family: 'Consolas', 'Monaco', monospace;
+    line-height: 1.8;
+    background-color: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.step {
+    padding: 0.8rem 1.2rem;
+    margin: 0.5rem 0;
+    border-radius: 8px;
+    font-family: 'Consolas', monospace;
+    transition: transform 0.2s ease;
+}
+
+.title {
+    color: #1a202c;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.down-case {
+    background: #f7fafc;
+    color: #4a5568;
+}
+
+.base-case {
+    background: #ebf8ff;
+    color: #2b6cb0;
+}
+
+.up-case {
+    background: #f0fff4;
+    color: #2f855a;
+}
+
+.step:hover {
+    transform: translateX(5px);
+}
+
+.step-content {
+    font-size: 1.1rem;
+}
+
+/* Code section styling */
+.code-section {
+    background: #f8fafc;
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.code-section h2 {
+    color: #2d3748;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.code-section h2:before {
+    content: "{ }";
+    color: #4299e1;
+    font-weight: bold;
+}
+
+.code-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.tab-btn {
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    background: #e2e8f0;
+    color: #4a5568;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+    background: #4299e1;
+    color: white;
+}
+
+.code-block {
+    background: #1a202c;
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: none;
+}
+
+.code-block.active {
+    display: block;
+}
+
+.code-block pre {
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+.code-block code {
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 1rem;
+    color: #e2e8f0;
+    line-height: 1.6;
+}
+
+/* Syntax highlighting */
+.code-block .comment { color: #718096; }
+.code-block .keyword { color: #9f7aea; }
+.code-block .string { color: #48bb78; }
+.code-block .number { color: #f6ad55; }
+.code-block .function { color: #4299e1; }
+
+/* Thêm styles cho code highlighting */
+.code-block {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.code-block code {
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+/* Syntax highlighting */
+.keyword { color: #81a1c1; }
+.function { color: #88c0d0; }
+.comment { color: #616e88; }
+.number { color: #b48ead; }
+.string { color: #a3be8c; }
+
+/* Kết quả cuối cùng */
+.final-result {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(56, 161, 105, 0.2);
+}
+
+/* Điều chỉnh thứ tự hiển thị */
+.code-section {
+    margin-bottom: 2rem;
+}
+
+.input-section {
+    margin-bottom: 2rem;
+}
+
+.result-section h2 {
+    margin-top: 2rem;
+}
+
+/* Thêm style cho divider */
+.divider {
+    height: 2px;
+    background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+    margin: 2rem 0;
+}
+
+/* Điều chỉnh spacing */
+.code-section {
+    margin-bottom: 1rem;
+}
+
+.code-section h2 {
+    color: #2d3748;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.input-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: #f8fafc;
+    border-radius: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .container {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .code-block {
+        padding: 1rem;
+    }
+
+    .code-block code {
+        font-size: 0.9rem;
+    }
+}
+
+/* Thêm styles mới */
+.problem-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid #e2e8f0;
+}
+
+.sequence-result {
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 10px;
+    font-family: 'Consolas', monospace;
+    word-wrap: break-word;
+    line-height: 1.8;
+}
+
+.check-result {
+    text-align: center;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.is-fib {
+    background: #c6f6d5;
+    color: #2f855a;
+}
+
+.not-fib {
+    background: #fed7d7;
+    color: #c53030;
+}
+
+/* Styles cho tabs chọn bài toán */
+.problem-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 1rem;
+}
+
+.problem-tab {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 8px;
+    background: #e2e8f0;
+    color: #4a5568;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.problem-tab.active {
+    background: #4299e1;
+    color: white;
+}
+
+/* Styles cho mê cung */
+.maze-grid {
+    display: grid;
+    gap: 4px;
+    margin: 2rem 0;
+    background: #e2e8f0;
+    padding: 4px;
+    border-radius: 8px;
+    width: fit-content;
+}
+
+.maze-cell {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+}
+
+.maze-empty {
+    background: white;
+}
+
+.maze-wall {
+    background: #2d3748;
+}
+
+.maze-start {
+    background: #48bb78;
+}
+
+.maze-end {
+    background: #ed8936;
+}
+
+.maze-path {
+    background: #90cdf4;
+}
+
+.maze-controls {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.maze-input {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* Style cho main tabs */
+.main-tabs {
+    position: sticky;
+    top: 0;
+    background: linear-gradient(to right, #2d3748, #4a5568);
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.main-tab {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #e2e8f0;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.main-tab i {
+    font-size: 1.2rem;
+}
+
+.main-tab:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.main-tab.active {
+    background: #4299e1;
+    color: white;
+    box-shadow: 0 4px 12px rgba(66, 153, 225, 0.3);
+}
+
+/* Điều chỉnh container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.problem-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    margin-top: 2rem;
+}
+
+/* Style cho tiêu đề chính */
+.main-title {
+    text-align: center;
+    color: #2d3748;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+/* Style cho problem content */
+.problem-content {
+    display: none;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.problem-content.active {
+    display: block;
+}
